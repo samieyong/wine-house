@@ -1,0 +1,599 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+/* General styles */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+}
+html {
+   font-size: 72.5%;
+}
+:root {
+   --orange: #ff5e00;
+   --light-orange: #ff9100;
+   --dark-orange: #c24802;
+   --green: #08e22c;
+   --dark-green: #018d2b;
+}
+.container {
+   width: 90%;
+   margin: 0 auto;
+}
+.btn {
+   all: unset;
+   width: fit-content;
+   text-transform: uppercase;
+   letter-spacing: 0.1rem;
+   cursor: pointer;
+}
+
+/* ///// Header Section///// */
+.header {
+   width: 100%;
+   height: 100vh;
+   position: relative;
+   overflow: hidden;
+}
+
+/* Navigation */
+.nav__menu {
+   width: 100%;
+   height: 8rem;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   position: absolute;
+   z-index: 100;
+}
+.logo {
+   width: 5rem;
+}
+.nav__menu-bars-wrapper {
+   display: none;
+}
+.nav__menu-bar {
+   height: 0.25rem;
+   background-color: #fff;
+}
+.nav__menu-bar:not(:last-child) {
+   margin-bottom: 0.8rem;
+}
+.nav__menu-bar-1 {
+   width: 50%;
+   transition: transform 1s;
+}
+.change .nav__menu-bar-1 {
+   transform: rotate(-35deg) translate(0.8rem, 2.55rem);
+}
+.nav__menu-bar-2 {
+   width: 100%;
+}
+.nav__menu-bar-3 {
+   width: 50%;
+   margin-left: auto;
+   transition: transform 1s;
+}
+.change .nav__menu-bar-3 {
+   transform: rotate(35deg) translate(-0.85rem, -1.35rem);
+}
+.nav__menu-list {
+   width: 80%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+}
+.change .nav__menu-list {
+   right: 0;
+}
+.nav__menu-list a {
+   color: #fff;
+   font-size: 1.8rem;
+   width: 16rem;
+   padding: 0.8rem 0;
+   border: 0.1rem solid #fff;
+   text-shadow: 0.1rem 0.1rem 0.1rem #000;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 0.15rem;
+   position: relative;
+   overflow: hidden;
+}
+.nav__menu-list a::before {
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: var(--orange);
+   left: -60%;
+   transform: rotate(-45deg);
+   transition: left 0.1s;
+}
+.nav__menu-list a:hover::before {
+   left: 50%;
+}
+
+/* Arrow Button */
+.arrow__btn {
+   all: unset;
+   position: absolute;
+   top: 50%;
+   z-index: 90;
+}
+.arrow__btn-right {
+   right: 3rem;
+   transform: translateY(-50%) rotate(90deg);
+}
+.arrow__btn-left {
+   left: 3rem;
+   transform: translateY(-50%) rotate(-90deg);
+}
+.arrow__btn img {
+   width: 4rem;
+   opacity: 0.4;
+   transition: opacity 0.3s;
+   cursor: pointer;
+}
+.arrow__btn img:hover {
+   opacity: 1;
+}
+
+/* Slide Show */
+.slideshow {
+   height: 100%;
+   width: 100%;
+}
+
+.slideshow-1-content {
+   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+      url('./images/bg1.jpg') no-repeat;
+   left: 0;
+   z-index: 30;
+}
+.slideshow-2-content {
+   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+      url('./images/bg2.jpg') no-repeat;
+   left: 0;
+   z-index: 25;
+}
+.slideshow-3-content {
+   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+      url('./images/bg3.jpg') no-repeat;
+   left: 0;
+   z-index: 20;
+}
+.slideshow-4-content {
+   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+      url('./images/bg4.jpg') no-repeat;
+   left: 0;
+   z-index: 15;
+}
+.slideshow-5-content {
+   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+      url('./images/bg5.jpg') no-repeat;
+   left: 0;
+   z-index: 10;
+}
+.slideshow-content {
+   position: absolute;
+   background-size: cover;
+   background-position: center;
+   height: inherit;
+   width: inherit;
+   transform: scale(1.5);
+   transition: all 2.5s;
+}
+.slideshow-text {
+   position: absolute;
+   top: 60%;
+   right: 4rem;
+   text-align: right;
+   color: #fff;
+}
+.slideshow-text h2 {
+   font-size: 6.5rem;
+   text-shadow: 0.2rem 0.2rem 0.2rem var(--orange);
+}
+.slideshow-text p {
+   font-size: 2.4rem;
+   margin: 0.5rem 0;
+   transition: all 1.5s;
+}
+
+/* progress Bar */
+.progress__display {
+   position: absolute;
+   bottom: 4rem;
+   left: 4rem;
+   z-index: 100;
+   color: #fff;
+   text-align: center;
+}
+.progress__display-circle-wrapper {
+   width: 8rem;
+   display: flex;
+   justify-content: space-between;
+   margin-top: 0.5rem;
+}
+.progress__display-text {
+   font-size: 2rem;
+}
+.progress__display-circle {
+   height: 1.3rem;
+   width: 1.3rem;
+   border: 0.1rem solid #fff;
+   border-radius: 50%;
+   opacity: 0.5;
+   transition: background-color 1.5s;
+}
+.progress__display-circle:first-child {
+   background-color: #fff;
+}
+
+/*///// Classic Wine Section /////*/
+.classic__wines {
+   padding: 8rem 0;
+   background-color: #fff8f4;
+}
+.classic__wines h1 {
+   font-size: 8rem;
+   text-align: center;
+   text-shadow: 0.2rem 0.2rem 0.2rem var(--dark-orange),
+      -0.2rem -0.2rem 0.2rem grey;
+   color: white;
+}
+.classic__wines-card-wrapper {
+   padding: 8rem 0;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 5rem;
+   perspective: 500rem;
+}
+.classic__wines-card {
+   background: linear-gradient(var(--orange) 60%, var(--light-orange));
+   height: 42rem;
+   box-shadow: 0.5rem 0.5rem 0.5rem grey, -0.2rem -0.2rem 0.3rem grey;
+   position: relative;
+   transform-style: preserve-3d;
+   transition: transform 1s;
+}
+.classic__wines-card-front {
+   width: 100%;
+   height: 100%;
+   background-color: #fff;
+   display: grid;
+   align-content: center;
+   place-items: center;
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: translateZ(1px);
+   z-index: 1;
+}
+.classic__wines-card-back {
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   padding: 3rem;
+   color: white;
+   position: absolute;
+   transform: translateZ(-1px) rotateY(180deg);
+   transform-style: preserve-3d;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+   z-index: -1;
+}
+.classic__wines-card-year {
+   align-self: flex-end;
+   font-family: 'Tangerine', cursive;
+   font-size: 3rem;
+}
+.classic__wines-card-title {
+   font-size: 4.6rem;
+   font-family: 'Tangerine', cursive;
+   font-weight: 700;
+}
+.classic__wines-card-description {
+   font-size: 1.6rem;
+   line-height: 2rem;
+   color: #fff;
+   opacity: 0.6;
+}
+.classic__wines-card-price {
+   font-size: 2.8rem;
+   font-weight: 600;
+}
+
+.btn-wine-card {
+   width: 50%;
+   padding: 1.2rem 2rem;
+   font-size: 2rem;
+   color: white;
+   background-color: var(--green);
+   box-shadow: 0.2rem 0.3rem 0.3rem var(--dark-green);
+   font-weight: bold;
+   position: relative;
+   overflow: hidden;
+}
+.btn-wine-card::before {
+   content: '';
+   width: 100%;
+   height: 100%;
+   transform: rotate(-45deg);
+   background: linear-gradient(to right, transparent, #fff, transparent);
+   position: absolute;
+   left: -40%;
+   top: -200%;
+   transition: top 0.4s, left 0.4s;
+}
+.btn-wine-card:hover::before {
+   left: 40%;
+   top: 200%;
+}
+.btn-details {
+   position: absolute;
+   top: 1rem;
+   right: 2rem;
+   font-size: 1.2rem;
+   padding: 0.3rem;
+   box-shadow: 0.2rem 0.2rem 0.2rem var(--orange);
+   transform: translateZ(2px);
+   z-index: 5;
+   font-family: Arial, Helvetica, sans-serif;
+}
+.btn-back {
+   color: #fff;
+   position: absolute;
+   top: 1.5rem;
+   right: 1.5rem;
+   font-size: 1.2rem;
+   padding: 0.3rem;
+   box-shadow: 0.2rem 0.2rem 0.2rem var(--dark-orange);
+   opacity: 0.8;
+   transform: translateZ(-2px) rotateY(180deg);
+}
+.btn-details:hover {
+   color: var(--orange);
+}
+
+/*///// Banner Section /////*/
+.banner {
+   width: 100%;
+   height: 16rem;
+   background-color: #000;
+   margin-bottom: 16rem;
+}
+.banner .container {
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.banner-headings {
+   width: 90%;
+   height: 100%;
+   color: #fff;
+   text-align: center;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   overflow: hidden;
+}
+.banner-headings span {
+   font-size: 4.5rem;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   text-transform: uppercase;
+   text-align: center;
+   width: 100%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   letter-spacing: 2.5rem;
+   opacity: 0;
+}
+.banner-headings-1 {
+   animation: animateHeading 15s 3s infinite;
+}
+.banner-headings-2 {
+   animation: animateHeading 15s 6s infinite;
+}
+.banner-headings-3 {
+   animation: animateHeading 15s 9s infinite;
+}
+.banner-headings-4 {
+   animation: animateHeading 15s 12s infinite;
+}
+.banner-headings-5 {
+   animation: animateHeading 15s 15s infinite;
+}
+
+@keyframes animateHeading {
+   0% {
+      opacity: 0;
+      letter-spacing: 1.5rem;
+   }
+
+   2.8% {
+      opacity: 1;
+      letter-spacing: 0.2rem;
+   }
+
+   20% {
+      opacity: 1;
+      letter-spacing: 0.2rem;
+   }
+
+   22.8% {
+      opacity: 0;
+      letter-spacing: 1.5rem;
+   }
+
+   100% {
+      opacity: 0;
+      letter-spacing: 1.5rem;
+   }
+}
+
+/* ///// Contact Section ///// */
+.contact {
+   padding: 3rem 0;
+   background: url('./images/wine-shelf.jpg') no-repeat;
+   background-size: cover;
+   background-position: center;
+   min-height: 100vh;
+   display: grid;
+   place-items: center;
+}
+.contact-form {
+   width: 40rem;
+   padding: 2rem;
+   background-color: rgba(0, 0, 0, 0.5);
+   display: flex;
+   flex-direction: column;
+}
+.contact-form h2 {
+   font-size: 6rem;
+   text-align: center;
+   color: #fff;
+   margin-bottom: 2rem;
+   text-shadow: 0.2rem 0.2rem 0.3rem var(--orange), -0.2rem -0.2rem 0.2rem grey;
+}
+
+.contact-form input {
+   height: 5rem;
+   padding: 1rem;
+   margin-bottom: 1rem;
+   outline: transparent;
+}
+.contact-form textarea {
+   outline: transparent;
+   height: 10rem;
+   padding: 1rem;
+   margin-bottom: 1rem;
+}
+.btn-contact {
+   width: 100%;
+   height: 5rem;
+   text-align: center;
+   color: white;
+   font-size: 2.4rem;
+   font-weight: bold;
+   background-color: var(--green);
+   box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.8);
+}
+
+/* ///// Footer Section ///// */
+footer {
+   height: 10rem;
+   width: 100%;
+   display: grid;
+   place-items: center;
+   background-color: var(--dark-orange);
+}
+footer p {
+   color: #fff;
+   font-size: 1.4rem;
+   letter-spacing: 0.1rem;
+}
+
+/* ///// Responsive Section///// */
+@media screen and (max-width: 1366px) {
+   html {
+      font-size: 62.5%;
+   }
+}
+@media screen and (max-width: 1052px) {
+   html {
+      font-size: 52.5%;
+   }
+   .classic__wines-card-front img {
+      height: 80%;
+   }
+   .classic__wines-card-title {
+      font-size: 4rem;
+   }
+   .banner img {
+      height: 70%;
+   }
+}
+
+@media screen and (max-width: 920px) {
+   .nav__menu {
+      justify-content: space-between;
+      padding: 0 5rem;
+   }
+   .nav__menu-bars-wrapper {
+      display: block;
+      width: 4rem;
+      cursor: pointer;
+   }
+   .nav__menu-list {
+      flex-direction: column;
+      position: absolute;
+      top: 10rem;
+      right: -31rem;
+      height: 100vh;
+      width: 30rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: right 1s;
+      justify-content: unset;
+   }
+   .nav__menu-list a {
+      width: 18rem;
+
+      margin-top: 5rem;
+   }
+   .slideshow h2 {
+      font-size: 5.4rem;
+   }
+   .slideshow p {
+      font-size: 2.2rem;
+   }
+   .progress__display {
+      top: 2rem;
+      bottom: unset;
+      left: 50%;
+      transform: translateX(-50%);
+   }
+   .classic__wines-card-wrapper {
+      grid-template-columns: 1fr 1fr;
+   }
+   .btn-details,
+   .btn-back {
+      font-size: 1.4rem;
+   }
+   .banner span {
+      font-size: 3.5rem;
+   }
+}
+
+@media screen and (max-width: 602px) {
+   .classic__wines h1 {
+      font-size: 6rem;
+   }
+   .classic__wines-card-wrapper {
+      grid-template-columns: 1fr;
+      gap: 7rem;
+      perspective: 2000rem;
+   }
+   .btn-details,
+   .btn-back {
+      font-size: 1.6rem;
+   }
+   .slideshow-text {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+   }
+   .slideshow h2,
+   .slideshow p {
+      text-align: center;
+   }
+   .banner span {
+      font-size: 2.6rem;
+   }
+}
